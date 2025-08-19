@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stockholm Opinions</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 id="title" data-i18n="title">Stockholm: Tell Us What You Think</h1>
+      <p id="tagline" data-i18n="tagline">Two quick questions for visitors and locals who’ve spent time here.</p>
+
+      <div class="lang-switcher">
+        <label for="lang-select" class="sr-only" data-i18n="chooseLanguageLabel">Choose language</label>
+        <select id="lang-select" aria-label="Language">
+          <option value="en">English</option>
+          <option value="sv">Svenska</option>
+          <option value="es">Español</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <form name="stockholm-feedback" data-netlify="true">
+    ...
+  </form>
+
+  <main class="container">
+    <section class="card">
+      <h2 data-i18n="formTitle">Share your thoughts</h2>
+      <form 
+        id="feedback-form"
+        name="stockholm-feedback"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        novalidate
+      >
+        <!-- dolda fält för Netlify -->
+        <input type="hidden" name="form-name" value="stockholm-feedback" />
+        <p class="hidden">
+          <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+        </p>
+  
+        <div class="form-group">
+          <label for="worst" data-i18n="qWorstLabel">
+            What do you think is the worst thing with Stockholm?
+          </label>
+          <textarea id="worst" name="worst" rows="3" required
+            data-i18n-placeholder="qWorstPlaceholder"
+            placeholder="e.g., prices, weather, crowds…"></textarea>
+          <small class="help" data-i18n="requiredHint">This question is required.</small>
+        </div>
+  
+        <div class="form-group">
+          <label for="underrated" data-i18n="qUnderratedLabel">
+            What is the most underrated thing about Stockholm?
+          </label>
+          <textarea id="underrated" name="underrated" rows="3" required
+            data-i18n-placeholder="qUnderratedPlaceholder"
+            placeholder="e.g., islands, libraries, parks…"></textarea>
+          <small class="help" data-i18n="requiredHint">This question is required.</small>
+        </div>
+  
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="name" data-i18n="nameLabel">First name (optional)</label>
+            <input id="name" name="name" type="text"
+              data-i18n-placeholder="namePlaceholder" placeholder="Your name" />
+          </div>
+  
+          <div class="form-group">
+            <label for="country" data-i18n="countryLabel">Country (optional)</label>
+            <input id="country" name="country" type="text"
+              data-i18n-placeholder="countryPlaceholder" placeholder="e.g., Spain" />
+          </div>
+        </div>
+  
+        <button type="submit" class="btn" data-i18n="submitBtn">Submit your answer</button>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  
+    <section class="card" id="recent-section" hidden>
+      <h2 data-i18n="recentTitle">Recent submissions</h2>
+      <ul id="recent-list" class="recent-list" aria-live="polite"></ul>
+      <button id="clear-data" class="btn btn-ghost" data-i18n="clearBtn">Clear local data</button>
+    </section>
+  </main>
+  
+
+  <footer class="site-footer">
+    <div class="container">
+      <p data-i18n="footer">Made with 💙 in Stockholm</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
