@@ -25,21 +25,6 @@
     </div>
   </header>
 
-<form 
-  id="feedback-form"
-  name="stockholm-feedback"
-  method="POST"
-  data-netlify="true"
-  netlify-honeypot="bot-field"
-  action="/resultat.html"
->
-  <!-- hidden fields för Netlify -->
-  <input type="hidden" name="form-name" value="stockholm-feedback" />
-  <p class="hidden">
-    <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-  </p>
-
-  <!-- resten av fälten... -->
 
 
   <main class="container">
@@ -52,12 +37,14 @@
         data-netlify="true"
         netlify-honeypot="bot-field"
         novalidate
-      >
-        <!-- dolda fält för Netlify -->
-        <input type="hidden" name="form-name" value="stockholm-feedback" />
-        <p class="hidden">
-          <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-        </p>
+        netlify-honeypot="bot-field"
+        action="/resultat.html"
+>
+  <!-- Netlify: identifierar formuläret -->
+  <input type="hidden" name="form-name" value="stockholm-feedback" />
+  <p class="hidden" aria-hidden="true">
+    <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+  </p>
   
         <div class="form-group">
           <label for="worst" data-i18n="qWorstLabel">
@@ -116,3 +103,4 @@
 </body>
 
 </html>
+
