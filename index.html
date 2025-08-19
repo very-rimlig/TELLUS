@@ -25,9 +25,22 @@
     </div>
   </header>
 
-  <form name="stockholm-feedback" data-netlify="true">
-    ...
-  </form>
+<form 
+  id="feedback-form"
+  name="stockholm-feedback"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  action="/resultat.html"
+>
+  <!-- hidden fields för Netlify -->
+  <input type="hidden" name="form-name" value="stockholm-feedback" />
+  <p class="hidden">
+    <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+  </p>
+
+  <!-- resten av fälten... -->
+
 
   <main class="container">
     <section class="card">
@@ -101,4 +114,5 @@
 
   <script src="app.js"></script>
 </body>
+
 </html>
